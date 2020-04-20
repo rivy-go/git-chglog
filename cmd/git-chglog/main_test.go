@@ -26,7 +26,7 @@ func TestCreateApp(t *testing.T) {
 	assert.True(true)
 	gAssert = assert
 
-	app := CreateApp(mockAppAction)
+	app := createApp(mockAppAction)
 	args := []string{
 		"git-chglog",
 		"--silent",

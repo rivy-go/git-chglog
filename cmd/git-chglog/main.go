@@ -11,7 +11,7 @@ import (
 	"github.com/urfave/cli"
 )
 
-func CreateApp(actionFunc cli.ActionFunc) *cli.App {
+func createApp(actionFunc cli.ActionFunc) *cli.App {
 	ttl := color.New(color.FgYellow).SprintFunc()
 
 	cli.AppHelpTemplate = fmt.Sprintf(`
@@ -141,7 +141,7 @@ func CreateApp(actionFunc cli.ActionFunc) *cli.App {
 	return app
 }
 
-func AppAction(c *cli.Context) error {
+func appAction(c *cli.Context) error {
 	wd, err := os.Getwd()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "failed to get working directory", err)
@@ -198,6 +198,6 @@ func AppAction(c *cli.Context) error {
 }
 
 func main() {
-	app := CreateApp(AppAction)
+	app := createApp(appAction)
 	app.Run(os.Args)
 }
